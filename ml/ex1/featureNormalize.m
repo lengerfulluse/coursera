@@ -26,9 +26,17 @@ sigma = zeros(1, size(X, 2));
 % Hint: You might find the 'mean' and 'std' functions useful.
 %       
 
+for iter = 1:columns(X)
 
+    feature = X(:,iter);
+    feature_mean = mean(feature);
+    mu(1,iter) = feature_mean;  % store mean of the iter feature.
+    feature_std = std(feature);
+    sigma(1,iter) = feature_std; % store stardard deviations of the feature.
+    X(:,iter) = (X(:,iter) - feature_mean)/feature_std; % normalization.
+end
 
-
+X_norm = X;
 
 
 

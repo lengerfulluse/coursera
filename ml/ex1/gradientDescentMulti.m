@@ -17,13 +17,14 @@ for iter = 1:num_iters
     %       of the cost function (computeCostMulti) and gradient here.
     %
 
+    % for theta_1;
+    error = X*theta - y;
+    theta(1,1) = theta(1,1) - sum(error)*alpha/m;
 
-
-
-
-
-
-
+    % for theta great than 1;
+    for theta_index = 2:rows(theta)
+        theta(theta_index,1) = theta(theta_index,1) - sum(error.*X(:,theta_index))*alpha/m;
+    end 
 
 
 
